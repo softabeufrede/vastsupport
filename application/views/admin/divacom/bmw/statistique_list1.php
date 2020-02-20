@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-md-3">
                         <select name="datestat" id="datestat" class="form-control">
-                            <option value="">Selectionner l'année</option>
+                            <option value="">Selectionner l'annï¿½e</option>
                         <?php
                         foreach($year_list->result_array() as $row)
                         {

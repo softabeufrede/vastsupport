@@ -1,5 +1,5 @@
 <?php
-	class Astucesfitness_model extends CI_Model{
+	class Bmw_model extends CI_Model{
 
 		public function add_message($data){
 			$this->db->insert('alertes', $data);
@@ -154,9 +154,38 @@
                 //return $this->db->get('statsouscription');
                 }
  
+//.............................bmw.....................
+function get_all_souscription(){
+	$wh =array();
+			$SQL ='SELECT * FROM souscription';
+			$wh[] = " is_admin = 0";
+			if(count($wh)>0)
+			{
+				$WHERE = implode('and',$wh);
+				return $this->datatable->LoadJson($SQL,$WHERE);
+			}
+			else
+			{
+				return $this->datatable->LoadJson($SQL);
+			}
+}
 
+public function get_offre()
+    {
+		$q=$this->bmwdb->select('*')->from('offre')->where('idoffre',3);
+		$response = $q->get()->result_array();
 
+   	    return $response;
 
+	}
+
+public function count_souscription(){
+	$this->db->select('count(*)');
+$query = $this->db->get('souscription');
+$cnt = $query->row_array();
+return $cnt['count(*)'];
+
+}
 	}
 
 ?>

@@ -8,7 +8,8 @@ class Bmw_Model extends CI_Model {
         parent::__construct();
 
 		date_default_timezone_set('UTC');
-		
+		$bmwdb = $this->load->database('bmwdb', TRUE); 
+		// the TRUE paramater tells CI that you'd like to return the database object.
     }
 
 

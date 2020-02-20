@@ -10,7 +10,7 @@
         <h2 style="display: inline-block;">
           LISTE DES MESSAGES
         </h2>
-        <a href="<?= base_url('admin/astucesfitness/add');?>" class="btn bg-deep-orange waves-effect pull-right"><i class="material-icons">person_add</i> AJOUTER UN MESSAGE</a>
+        <a href="<?= base_url('admin/divacom/bmw/add');?>" class="btn bg-deep-orange waves-effect pull-right"><i class="material-icons">person_add</i> AJOUTER UN MESSAGE</a>
       </div>
       <div class="body">
         <div class="table-responsive">
@@ -32,14 +32,14 @@
                 <th>Statuts</th>
                 <th style="width: 150px;" class="text-right">Action</th>
               </tr>
-            </tfoot>--!>
+            </tfoot>
           </table>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- #END# Exportable Table -->
+ #END# Exportable Table -->
 
 <!-- Modal -->
 <div id="confirm-delete" class="modal fade" role="dialog">
@@ -70,7 +70,7 @@
   var table = $('#na_datatable').DataTable( {
       "processing": true,
       "serverSide": true,
-      "ajax": "<?=base_url('admin/astucesfitness/datatable_json1')?>",
+      "ajax": "<?=base_url('admin/divacom/bmw/datatable_json1')?>",
       "order": [[0,'desc']],
       "columnDefs": [
         { "targets": 0, "name": "idalertes", 'searchable':true, 'orderable':true},
