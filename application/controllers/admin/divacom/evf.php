@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Bmw extends MY_Controller {
+class evf extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('admin/divacom/evf_model', 'evf_model');
@@ -30,7 +30,7 @@ class Bmw extends MY_Controller {
 
 
     /* $dateJour= date("Y-m-d");
-	$data['user'] = $this->bmw_model->get_all_users_stat();
+	$data['user'] = $this->evf_model->get_all_users_stat();
 
 
 if(isset($_POST['offre']) && strlen($_POST['offre'])>0){
@@ -56,16 +56,16 @@ $query=mysql_query($sql) or die(mysql_error());
 
     
  /**Nb d'abonné */ 
- /* $data['souscription'] = $this->bmw_model->get_all_users_stat();
+ /* $data['souscription'] = $this->evf_model->get_all_users_stat();
  $datesouscri=$data['souscription'][0]['datedebut'];
 $numero=$data['souscription'][0]['numero'];
 $idoffre=$data['souscription'][0]['idoffre']; 
 
-$data['offre'] = $this->bmw_model->get_offre();
+$data['offre'] = $this->evf_model->get_offre();
 $montantoffre=$data['offre'][0]['montant'];
 $duree=$data['offre'][0]['duree'];
 
-$data['nbsouscription'] = $this->bmw_model->count_souscription();
+$data['nbsouscription'] = $this->evf_model->count_souscription();
 
 
 
@@ -102,7 +102,7 @@ if($totaldesc==0){
 
 
         
-$data['nbsouscription'] = $this->bmw_model->count_souscription();
+$data['nbsouscription'] = $this->evf_model->count_souscription();
 
 
    
@@ -112,7 +112,7 @@ $data['nbsouscription'] = $this->bmw_model->count_souscription();
 			//$data['view'] = 'admin/Dynamic_chart';
 			//$this->load->view('layout', $data);
 
- 			//$data['year_list'] = $this->bmw_model->fetch_year();
+ 			//$data['year_list'] = $this->evf_model->fetch_year();
   			//$this->load->view('admin/astucesfitness/statistique_list', $data);
 
 		}
@@ -141,7 +141,7 @@ $data['nbsouscription'] = $this->bmw_model->count_souscription();
 		//--------------------------------MESSAGE---------------------------------
 
 		public function datatable_json1(){				   					   
-			$records = $this->bmw_model->get_all_users();
+			$records = $this->evf_model->get_all_users();
 			$data = array();
 			$i = 0;
 			foreach ($records['data']  as $row) 
@@ -156,12 +156,12 @@ $data['nbsouscription'] = $this->bmw_model->count_souscription();
 					$row['dateheureenvoi'],
 					$row['messages'],
 
-					'<a title="Modifier" class="update btn btn-sm btn-primary '.$nonenvoye.' href="'.base_url('admin/divacom/bmw/edit/'.$row['idalertes']).'"> <i class="material-icons">edit</i></a>
-					<a title="Supprimer" class="delete btn btn-sm btn-danger '.$envoye.' href="'.base_url('admin/divacom/bmw/del/'.$row['idalertes']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
+					'<a title="Modifier" class="update btn btn-sm btn-primary '.$nonenvoye.' href="'.base_url('admin/divacom/evf/edit/'.$row['idalertes']).'"> <i class="material-icons">edit</i></a>
+					<a title="Supprimer" class="delete btn btn-sm btn-danger '.$envoye.' href="'.base_url('admin/divacom/evf/del/'.$row['idalertes']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
 					',
 
 					
-					'<a title="Supprimer" class="delete btn btn-sm btn-danger '.$disabled.'" data-href="'.base_url('admin/divacom/bmw/del/'.$row['idalertes']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
+					'<a title="Supprimer" class="delete btn btn-sm btn-danger '.$disabled.'" data-href="'.base_url('admin/divacom/evf/del/'.$row['idalertes']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
 					',
 					
 				);
@@ -172,7 +172,7 @@ $data['nbsouscription'] = $this->bmw_model->count_souscription();
 
 		//--------------------------------MESSAGE---------------------------------
 		public function datatable_json2(){				   					   
-			$records = $this->bmw_model->get_all_users_alerte();
+			$records = $this->evf_model->get_all_users_alerte();
 			$data = array();
 			$i = 0;
 			foreach ($records['data']  as $row) 
@@ -184,8 +184,8 @@ $data['nbsouscription'] = $this->bmw_model->count_souscription();
 					$row['dateheure'],
 					$row['messages'],
 
-					'<a title="Modifier" class="update btn btn-sm btn-primary" href="'.base_url('admin/divacom/bmw/edit2/'.$row['idinfo']).'"> <i class="material-icons">edit</i></a>',
-					'<a title="Supprimer" class="delete btn btn-sm btn-danger '.$disabled.'" data-href="'.base_url('admin/divacom/bmw/del2/'.$row['idinfo']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
+					'<a title="Modifier" class="update btn btn-sm btn-primary" href="'.base_url('admin/divacom/evf/edit2/'.$row['idinfo']).'"> <i class="material-icons">edit</i></a>',
+					'<a title="Supprimer" class="delete btn btn-sm btn-danger '.$disabled.'" data-href="'.base_url('admin/divacom/evf/del2/'.$row['idinfo']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
 					',
 					
 				);
@@ -196,7 +196,7 @@ $data['nbsouscription'] = $this->bmw_model->count_souscription();
 		
 //--------------------------------SOUSCRIPTION---------------------------------
 public function datatable_json5(){				   					   
-	$records = $this->bmw_model->get_all_souscription();
+	$records = $this->evf_model->get_all_souscription();
 	$data = array();
 	$i = 0;
 	foreach ($records['data']  as $row) 
@@ -223,7 +223,7 @@ public function datatable_json5(){
 				$this->form_validation->set_rules('messages', 'Messages', 'trim|required');
 				$this->form_validation->set_rules('dateheureenvoi','Dateheureenvoi', 'trim|required');
 				if ($this->form_validation->run() == FALSE) {
-					$data['view'] = 'admin/divacom/bmw/message_add';
+					$data['view'] = 'admin/divacom/evf/message_add';
 					$this->load->view('layout', $data);
 				}
 				else{
@@ -246,17 +246,17 @@ public function datatable_json5(){
 						'is_admin' => 0,
 					);
 					$data = $this->security->xss_clean($data);
-					$result = $this->bmw_model->add_message($data);
+					$result = $this->evf_model->add_message($data);
 					if($result){
 
 						$this->session->set_flashdata('msg', 'Message ajouté avec succ�s !');
 
-						redirect(base_url('admin/divacom/bmw'));
+						redirect(base_url('admin/divacom/evf'));
 					}
 				}
 			}
 			else{
-				$data['view'] = 'admin/divacom/bmw/message_add';
+				$data['view'] = 'admin/divacom/evf/message_add';
 				$this->load->view('layout', $data);
 			}
 			
@@ -269,7 +269,7 @@ public function datatable_json5(){
 				$this->form_validation->set_rules('messages', 'Messages', 'trim|required');
 				$this->form_validation->set_rules('dateheure','Dateheure', 'trim|required');
 				if ($this->form_validation->run() == FALSE) {
-					$data['view'] = 'admin/divacom/bmw/alerte_add';
+					$data['view'] = 'admin/divacom/evf/alerte_add';
 					$this->load->view('layout', $data);
 				}
 				else{
@@ -289,16 +289,16 @@ public function datatable_json5(){
 						'is_admin' => 0,
 					);
 					$data = $this->security->xss_clean($data);
-					$result = $this->bmw_model->add_alerte($data);
+					$result = $this->evf_model->add_alerte($data);
 					if($result){
 
 						$this->session->set_flashdata('msg', 'Alerte ajouté avec succ�s !');
-						redirect(base_url('admin/divacom/bmw/alerte'));
+						redirect(base_url('admin/divacom/evf/alerte'));
 					}
 				}
 			}
 			else{
-				$data['view'] = 'admin/divacom/bmw/alerte_add';
+				$data['view'] = 'admin/divacom/evf/alerte_add';
 				$this->load->view('layout', $data);
 			}
 			
@@ -312,9 +312,9 @@ public function datatable_json5(){
 				$this->form_validation->set_rules('dateheureenvoi','Dateheureenvoi', 'trim|required');
 
 				if ($this->form_validation->run() == FALSE) {
-					$data['user'] = $this->bmw_model->get_user_by_id($idalertes);
-					//$data['user_groups'] = $this->bmw_model->get_user_groups();
-					$data['view'] = 'admin/divacom/bmw/message_edit';
+					$data['user'] = $this->evf_model->get_user_by_id($idalertes);
+					//$data['user_groups'] = $this->evf_model->get_user_groups();
+					$data['view'] = 'admin/divacom/evf/message_edit';
 					$this->load->view('layout', $data);
 				}
 				else{
@@ -334,21 +334,21 @@ public function datatable_json5(){
 
 					);
 					$data = $this->security->xss_clean($data);
-					$result = $this->bmw_model->edit_user($data,$idalertes);
+					$result = $this->evf_model->edit_user($data,$idalertes);
 					if($result){
 
 						// Add User Activity
 						//$this->activity_model->add(2);
 
 						$this->session->set_flashdata('msg', 'Message modifié avec succ�s !');
-						redirect(base_url('admin/divacom/bmw'));
+						redirect(base_url('admin/divacom/evf'));
 					}
 				}
 			}
 			else{
-				$data['user'] = $this->bmw_model->get_user_by_id($idalertes);
-				//$data['user_groups'] = $this->bmw_model->get_user_groups();
-				$data['view'] = 'admin/divacom/bmw/message_edit';
+				$data['user'] = $this->evf_model->get_user_by_id($idalertes);
+				//$data['user_groups'] = $this->evf_model->get_user_groups();
+				$data['view'] = 'admin/divacom/evf/message_edit';
 				$this->load->view('layout', $data);
 			}
 		}
@@ -362,9 +362,9 @@ public function datatable_json5(){
 				$this->form_validation->set_rules('dateheure','Dateheure', 'trim|required');
 
 				if ($this->form_validation->run() == FALSE) {
-					$data['user'] = $this->bmw_model->get_user_by_idi($idinfo);
-					//$data['user_groups'] = $this->bmw_model->get_user_groups();
-					$data['view'] = 'admin/divacom/bmw/alertes_edit';
+					$data['user'] = $this->evf_model->get_user_by_idi($idinfo);
+					//$data['user_groups'] = $this->evf_model->get_user_groups();
+					$data['view'] = 'admin/divacom/evf/alertes_edit';
 					$this->load->view('layout', $data);
 				}
 				else{
@@ -382,21 +382,21 @@ public function datatable_json5(){
 
 					);
 					$data = $this->security->xss_clean($data);
-					$result = $this->bmw_model->edit_user_info($data, $idinfo);
+					$result = $this->evf_model->edit_user_info($data, $idinfo);
 					if($result){
 
 						// Add User Activity
 						//$this->activity_model->add(2);
 
 						$this->session->set_flashdata('msg', 'Alerte modifié avec succ�s !');
-						redirect(base_url('admin/divacom/bmw/alerte'));
+						redirect(base_url('admin/divacom/evf/alerte'));
 					}
 				}
 			}
 			else{
-				$data['user'] = $this->bmw_model->get_user_by_idi($idinfo);
-				//$data['user_groups'] = $this->bmw_model->get_user_groups();
-				$data['view'] = 'admin/divacom/bmw/alerte_edit';
+				$data['user'] = $this->evf_model->get_user_by_idi($idinfo);
+				//$data['user_groups'] = $this->evf_model->get_user_groups();
+				$data['view'] = 'admin/divacom/evf/alerte_edit';
 				$this->load->view('layout', $data);
 			}
 		}
@@ -411,7 +411,7 @@ public function datatable_json5(){
 			//$this->activity_model->add(3);
 
 			$this->session->set_flashdata('msg', 'Message suprimé avec succ�s!');
-			redirect(base_url('admin/divacom/bmw'));
+			redirect(base_url('admin/divacom/evf'));
 		}
 
 		//-----------------------------------------------------------------------
@@ -422,13 +422,13 @@ public function datatable_json5(){
 			//$this->activity_model->add(3);
 
 			$this->session->set_flashdata('msg', 'Alerte suprimé avec succ�s!');
-			redirect(base_url('admin/divacom/bmw/alerte'));
+			redirect(base_url('admin/divacom/evf/alerte'));
 		}
 
 
 		//--------------------------------MESSAGE---------------------------------
 		public function datatable_json3(){				   					   
-			$records = $this->bmw_model->get_all_users_stat();
+			$records = $this->evf_model->get_all_users_stat();
 			$data = array();
 			$i = 0;
 			foreach ($records['data']  as $row) 
@@ -456,7 +456,7 @@ public function datatable_json5(){
 			//var_dump($this->input->post());
                     if($this->input->post('datestat'))
                     {
-                        $chart_data = $this->bmw_model->fetch_chart_data($this->input->post('datestat'));
+                        $chart_data = $this->evf_model->fetch_chart_data($this->input->post('datestat'));
 			//var_dump($chart_data);
                     
                         foreach($chart_data->result_array() as $row)
@@ -478,7 +478,7 @@ public function datatable_json5(){
 		//--------------------------------MESSAGE---------------------------------
 
 		public function datatable_json4($datestat){				   					   
-			$output = $this->bmw_model->fetch_chart_data($this->input->post('datestat'));
+			$output = $this->evf_model->fetch_chart_data($this->input->post('datestat'));
 var_dump($output);
 			$data = array();
 			$i = 0;
