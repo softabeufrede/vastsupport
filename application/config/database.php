@@ -117,7 +117,7 @@ $db['bmwdb'] = array(
 	'save_queries' => TRUE
 );
 
-$db['evfdb'] = array(
+$db['divacom_evf'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',

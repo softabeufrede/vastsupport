@@ -8,9 +8,9 @@
     <div class="card">
       <div class="header">
         <h2 style="display: inline-block;">
-          LISTE DES ALERTES
+          LISTE DES MESSAGES
         </h2>
-        <a href="<?= base_url('admin/astucesfitness/add2');?>" class="btn bg-deep-orange waves-effect pull-right"><i class="material-icons">person_add</i> AJOUTER UNE ALERTE</a>
+        <a href="<?= base_url('admin/divacom/bmw/add');?>" class="btn bg-deep-orange waves-effect pull-right"><i class="material-icons">person_add</i> AJOUTER UN MESSAGE</a>
       </div>
       <div class="body">
         <div class="table-responsive">
@@ -32,14 +32,14 @@
                 <th>Statuts</th>
                 <th style="width: 150px;" class="text-right">Action</th>
               </tr>
-            </tfoot>--!>
+            </tfoot>
           </table>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- #END# Exportable Table -->
+ #END# Exportable Table -->
 
 <!-- Modal -->
 <div id="confirm-delete" class="modal fade" role="dialog">
@@ -70,13 +70,13 @@
   var table = $('#na_datatable').DataTable( {
       "processing": true,
       "serverSide": true,
-      "ajax": "<?=base_url('admin/astucesfitness/datatable_json2')?>",
+      "ajax": "<?=base_url('admin/divacom/bmw/datatable_json1')?>",
       "order": [[0,'desc']],
       "columnDefs": [
-        { "targets": 0, "name": "idinfo", 'searchable':true, 'orderable':true},
-        { "targets": 1, "name": "dateheure", 'searchable':true, 'orderable':true},
+        { "targets": 0, "name": "idalertes", 'searchable':true, 'orderable':true},
+        { "targets": 1, "name": "dateheureenvoi", 'searchable':true, 'orderable':true},
         { "targets": 2, "name": "messages", 'searchable':true, 'orderable':true},
-        { "targets": 3, "name": "statut", 'searchable':true, 'orderable':true},
+        { "targets": 3, "name": "etatalerte", 'searchable':true, 'orderable':true},
         { "targets": 4, "name": "Action", 'searchable':false, 'orderable':false,'width':'100px'}
       ]
     });

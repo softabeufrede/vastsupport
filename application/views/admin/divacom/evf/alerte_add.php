@@ -7,13 +7,13 @@
     <h2>
       AJOUTER UNE ALERTE
     </h2>
-    <a href="<?= base_url('admin/astucesfitness/alerte'); ?>" class="btn bg-deep-orange waves-effect pull-right">Liste des messages</a>
+    <a href="<?= base_url('admin/divacom/evf/alerte'); ?>" class="btn bg-deep-orange waves-effect pull-right">Liste des messages</a>
   </div>
   <div class="body">
     <div class="row clearfix">
      
        
-      <?php echo form_open(base_url('admin/astucesfitness/add2'), 'class="form-horizontal"');  ?> 
+      <?php echo form_open(base_url('admin/divacom/evf/add'), 'class="form-horizontal"');  ?> 
         <div class="row clearfix">
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                 <label for="messages">Message</label>

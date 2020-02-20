@@ -26,83 +26,8 @@ class evf extends MY_Controller {
 		
 		public function statistique(){
 
-
-
-
-    /* $dateJour= date("Y-m-d");
-	$data['user'] = $this->evf_model->get_all_users_stat();
-
-
-if(isset($_POST['offre']) && strlen($_POST['offre'])>0){
-    $sql.=" AND idoffre='".$_POST['offre']."'";
-}
-
-if(isset($_POST['du']) && strlen($_POST['du'])>0) {
-    $date = new DateTime($_POST['du']);
-    $date = $date->format('Y-m-d');
-    $sql .= " AND datestat >= '". htmlspecialchars($date)."'";
-}
-
-if(isset($_POST['au']) && strlen($_POST['au'])>0) {
-    $d = new DateTime($_POST['au']);
-    $dat = $d->format('Y-m-d');
-    $sql .= " AND datestat <= '". htmlspecialchars($dat)."'";   
-}
-
-
-$query=mysql_query($sql) or die(mysql_error());
- */
-
-
-    
- /**Nb d'abonné */ 
- /* $data['souscription'] = $this->evf_model->get_all_users_stat();
- $datesouscri=$data['souscription'][0]['datedebut'];
-$numero=$data['souscription'][0]['numero'];
-$idoffre=$data['souscription'][0]['idoffre']; 
-
-$data['offre'] = $this->evf_model->get_offre();
-$montantoffre=$data['offre'][0]['montant'];
-$duree=$data['offre'][0]['duree'];
-
-$data['nbsouscription'] = $this->evf_model->count_souscription();
-
-
-
-/**Nb de souscription par jour
-$nbsousj= mysql_query("SELECT count(*) as nbsj FROM statsouscription WHERE datestat='$dateJour'") or die(mysql_error());
-$nj=mysql_fetch_array($nbsousj);
-$nbj=$nj['nbsj'];*/ 
-
-
-/**Nb de alertes par jour 
-$alerte= mysql_query("SELECT count(*) as alerte FROM alertes WHERE datejour='$dateJour'") or die(mysql_error());
-$nbal=mysql_fetch_array($alerte);
-$nbalerte=$nbal['alerte'];*/
-
-/**Nb de alertes par jour
-$total= mysql_query("SELECT sum(montantoffre) as total FROM statsouscription WHERE datestat='$dateJour'") or die(mysql_error());
-$som=mysql_fetch_array($total);
-$somTotal=$som['total'];
-
-if($somTotal==0){
-    $somTotal=0;
-}
-*/ 
-/**Nb de desouscription
-$desouscription= mysql_query("SELECT count(*) as total FROM desouscription") or die(mysql_error());
-$nbdesc=mysql_fetch_array($desouscription);
-$totaldesc=$nbdesc['total'];
-if($totaldesc==0){
-    $totaldesc=0;
-}
-
-*/ 
-
-
-
         
-$data['nbsouscription'] = $this->evf_model->count_souscription();
+		$data['nbsouscription'] = $this->evf_model->count_souscription();
 
 
    
@@ -140,8 +65,8 @@ $data['nbsouscription'] = $this->evf_model->count_souscription();
 
 		//--------------------------------MESSAGE---------------------------------
 
-		public function datatable_json1(){				   					   
-			$records = $this->evf_model->get_all_users();
+		public function datatable_json(){				   					   
+			$records = $this->evf_model->get_all_alertes();
 			$data = array();
 			$i = 0;
 			foreach ($records['data']  as $row) 
@@ -172,20 +97,22 @@ $data['nbsouscription'] = $this->evf_model->count_souscription();
 
 		//--------------------------------MESSAGE---------------------------------
 		public function datatable_json2(){				   					   
-			$records = $this->evf_model->get_all_users_alerte();
+			$records = $this->evf_model->get_all_informations();
 			$data = array();
 			$i = 0;
 			foreach ($records['data']  as $row) 
 			{  
 				$disabled = ($row['is_admin'] == 1)? 'disabled': ''.'<span>';
+				$nmc = strlen($row['messages']);
 					//<a title="View" class="view btn btn-sm btn-info" href="'.base_url('admin/astucesfitness/edit2/'.$row['idinfo']).'"> <i class="material-icons">visibility</i></a>
 				$data[]= array(
 					++$i,
 					$row['dateheure'],
 					$row['messages'],
+					$nmc." ".'<a title="Programmer ce message" class="update btn btn-sm btn-danger" href="'.base_url('admin/divacom/evf/edit3/'.$row['idinfo']).'"> <i class="material-icons">send</i></a>',
 
-					'<a title="Modifier" class="update btn btn-sm btn-primary" href="'.base_url('admin/divacom/evf/edit2/'.$row['idinfo']).'"> <i class="material-icons">edit</i></a>',
-					'<a title="Supprimer" class="delete btn btn-sm btn-danger '.$disabled.'" data-href="'.base_url('admin/divacom/evf/del2/'.$row['idinfo']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
+					'<a title="Modifier" class="update btn btn-sm btn-primary" href="'.base_url('admin/divacom/evf/edit2/'.$row['idinfo']).'"> <i class="material-icons">edit</i></a>
+					<a title="Supprimer" class="delete btn btn-sm btn-danger '.$disabled.'" data-href="'.base_url('admin/divacom/evf/del2/'.$row['idinfo']).'" data-toggle="modal" data-target="#confirm-delete"> <i class="material-icons">delete</i></a>
 					',
 					
 				);
@@ -400,6 +327,44 @@ public function datatable_json5(){
 				$this->load->view('layout', $data);
 			}
 		}
+
+
+
+
+			//--------------------PROGRAMMER MESSAGE DANS ------------------------------------
+
+
+			public function edit3($idinfo = 0){
+				if($this->input->get('idinfo')){
+	
+						$date2 = $dateen=(string)$this->input->post('dateheure');
+	
+						$time = strtotime($date2);
+						$newformat_date = date('Y-m-d H:i:s',$time);
+	
+						$data = array(
+							'messages' => $this->input->post('messages'),
+							'dateheure' => $newformat_date,
+							'statut' => 0,
+							'is_admin' => 0,
+	
+						);
+						$data = $this->security->xss_clean($data);
+						$result = $this->evf_model->edit_user_info($data, $idinfo);
+						if($result){
+	
+	
+							$this->session->set_flashdata('msg', 'Alerte modifié avec succ�s !');
+							redirect(base_url('admin/divacom/evf/alerte'));
+						}
+				}
+				else{
+					$data['user'] = $this->evf_model->get_user_by_idi($idinfo);
+					//$data['user_groups'] = $this->evf_model->get_user_groups();
+					$data['view'] = 'admin/divacom/evf/alerte_edit';
+					$this->load->view('layout', $data);
+				}
+			}
 
 
 

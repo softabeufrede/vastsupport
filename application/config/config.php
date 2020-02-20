@@ -407,7 +407,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 $config['cookie_prefix']	= '';
 $config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
-$config['cookie_secure']	= TRUE;
+$config['cookie_secure']	= FALSE; /* mettre a true dans le cas ou on arrive pas a ce connecter et faire pareil pour  ligne 455*/
 $config['cookie_httponly'] 	= FALSE;
 
 /*

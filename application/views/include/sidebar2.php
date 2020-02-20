@@ -45,7 +45,7 @@
         </a>
         <ul class="ml-menu">
           <li id="astucefmessagelist">
-            <a href="<?= base_url('admin/astucesfitness/message'); ?>">Messages</a>
+            <a href="<?= base_url('admin/astucesfitness/message'); ?>">Mecvgfhngnhjssages</a>
           </li>
           <li id="astucef_statistique_list">
             <a href="<?= base_url('admin/dynamic_chart'); ?>">Statistiques</a>
@@ -60,40 +60,12 @@
       </li>
 
 
-      <li id="divacom">
+    <!--  <li id="divacom">
         <a href="javascript:void(0);" class="menu-toggle">
           <i class="material-icons">person</i>
           <span>Diva Com</span>
         </a>
         <ul class="ml-menu">
-
-          <li id="bmw">
-          <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>BusinessManWord</span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/bmw/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/bmw/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/bmw/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/bmw/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-        <li id="cfa">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>ConseilFinances&Argent </span>
-          </a>
-         <ul class="ml-menu">
           <li id="divacommessage">
             <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
           </li>
@@ -107,182 +79,11 @@
             <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
           </li>
         </ul>
-        </li>
-
-        <li id="evf ">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>Enfant&VieFamiliale  </span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/evf/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/evf/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/evf/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/evf/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-         
-        <li id="sos">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>StopOperatingStress  </span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-          
-        <li id="jb ">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>JobBooster</span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-        <li id="motivplus ">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>MotivPlus</span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-        <li id="ps">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>Proverbe&SagesseDeChezNous</span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-        <li id="lp">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>LeadershipAuPluriel </span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-        <li id="phg">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>PenséesDesGrandsHommes </span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-        <li id="jdwu">
-        <a href="javascript:void(0);" class="menu-toggle">
-          <i class="material-icons">person</i>
-          <span>J-date_WhatsUp </span>
-          </a>
-         <ul class="ml-menu">
-          <li id="divacommessage">
-            <a href="<?= base_url('admin/divacom/message'); ?>">Messages</a>
-          </li>
-          <li id="divacomstatistique">
-            <a href="<?= base_url('admin/divacom/statistique'); ?>">Statistiques</a>
-          </li>
-          <li id="divacomvisuel">
-            <a href="<?= base_url('admin/divacom/visuel'); ?>">Visuel annuel</a>
-          </li>
-          <li id="divacomalerte">
-            <a href="<?= base_url('admin/divacom/alerte'); ?>">Alertes</a>
-          </li>
-        </ul>
-        </li>
-
-      </ul>
       </li>
 
 
 
-     <!-- <li id="agendaevents">
+      <li id="agendaevents">
         <a href="javascript:void(0);" class="menu-toggle">
           <i class="material-icons">person</i>
           <span>Agenda Events</span>

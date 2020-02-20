@@ -16,7 +16,7 @@
 		//---------------------------------------------------
 
 		// get all users for server-side datatable processing (ajax based)
-		public function get_all_users(){
+		public function get_all_alertes(){
 			$wh =array();
 			$SQL ='SELECT * FROM alertes';
 			$wh[] = " is_admin = 0";
@@ -34,7 +34,7 @@
 
 
 		//---------------------------------------------------
-		public function get_all_users_alerte(){
+		public function get_all_informations(){
 			$wh =array();
 			$SQL ='SELECT * FROM informations';
 			$wh[] = " is_admin = 0";

@@ -8,9 +8,9 @@
     <div class="card">
       <div class="header">
         <h2 style="display: inline-block;">
-          LISTE DES MESSAGES
+          LISTE DES ALERTES
         </h2>
-        <a href="<?= base_url('admin/astucesfitness/add');?>" class="btn bg-deep-orange waves-effect pull-right"><i class="material-icons">person_add</i> AJOUTER UN MESSAGE</a>
+        <a href="<?= base_url('admin/astucesfitness/add2');?>" class="btn bg-deep-orange waves-effect pull-right"><i class="material-icons">person_add</i> AJOUTER UNE ALERTE</a>
       </div>
       <div class="body">
         <div class="table-responsive">
@@ -20,19 +20,10 @@
                 <th>N </th>
                 <th>Date d'envoi</th>
                 <th>Messages</th>
-                <th>Statuts</th>
+                <th>Nbsms</th>
                 <th width="200" class="text-right">Action</th>
               </tr>
-            </thead>
-           <!-- <tfoot>
-              <tr>
-                <th>N </th>
-                <th>Date d'envoi</th>
-                <th>Messages</th>
-                <th>Statuts</th>
-                <th style="width: 150px;" class="text-right">Action</th>
-              </tr>
-            </tfoot>--!>
+            </thead>          
           </table>
         </div>
       </div>
@@ -70,13 +61,13 @@
   var table = $('#na_datatable').DataTable( {
       "processing": true,
       "serverSide": true,
-      "ajax": "<?=base_url('admin/astucesfitness/datatable_json1')?>",
+      "ajax": "<?=base_url('admin/divacom/evf/datatable_json2')?>",
       "order": [[0,'desc']],
       "columnDefs": [
-        { "targets": 0, "name": "idalertes", 'searchable':true, 'orderable':true},
-        { "targets": 1, "name": "dateheureenvoi", 'searchable':true, 'orderable':true},
+        { "targets": 0, "name": "idinfo", 'searchable':true, 'orderable':true},
+        { "targets": 1, "name": "dateheure", 'searchable':true, 'orderable':true},
         { "targets": 2, "name": "messages", 'searchable':true, 'orderable':true},
-        { "targets": 3, "name": "etatalerte", 'searchable':true, 'orderable':true},
+        { "targets": 3, "name": "status", 'searchable':true, 'orderable':true},
         { "targets": 4, "name": "Action", 'searchable':false, 'orderable':false,'width':'100px'}
       ]
     });
